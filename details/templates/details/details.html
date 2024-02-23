@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <h1 class='text-center timer' id="countdown">??? days remaining</h1> 
+  </div>
+
+
+  <h1 class="mb-5" >
+    <span class="icon-span"><i class="fa-solid fa-{{ goal.categories }}"></i></span>
+    {{ goal.title }}
+   
+    
+  </h1>
+
+
+<h4 class="mb3">Objectives Completed = {{num_objective_completed}}/ {{objective_total}}</h4>
+{% if goal.completed %}<h4 class="mb3">Well done! </h4> {% endif %}
+<div class="row">
+  <div class="col-6">
+    <div class="progress mb-4" style="height: 50px;">
+    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{completion_percentage}}%" aria-valuenow="{{completion_percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  </div>
+</div>
+   
+  
+{% for key, value in categories_colors.items %}
+{% if key == goal.categories %}
+
+  <form method="post" class="mb-5">
+    {% csrf_token %}
+    <ol>
+      {% for objective in objectives %}
+        <li>
+          <label>
+            <input type="checkbox" name="completed" value="{{ objective.id }}" {% if objective.completed %}checked{% endif %} class="form-check-input">
+            {{ objective.description }}
+          </label>
+          <button type="submit" name="delete_objective" value="{{ objective.id }}" class="btn btn-danger ms-2 btn-sm">Delete</button>
+        </li>
+      {% endfor %}
+    </ol>
+    <input type="hidden" name="completed_status" value="on">
+    <button type="submit" name="update_objectives" style="background-color: var({{value }})"class="btn btn-custom">Update Objectives</button>
+  </form>
+
+
+  <h4>Add New Objective</h4>
+  <div class="row">
+    <div class="col-4">
+      <form method="post" class="mb-3">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    <button type="submit" name="add_objective" style="background-color: var({{value }})" class="btn btn-custom">Add Objective</button>
+  </form>
+    </div>
+    
+  </div>
+  
+{%endif%}
+{%endfor%}
+</div>  
+{% endblock %}

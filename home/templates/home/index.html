@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <h1 class='text-center timer' id="countdown">??? days remaining</h1>
+    <h1 class='timer text-center '> {{goals_completed_total}} / {{goals_total}} completed</h1>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <a href="{% url "add_goal" %}" class="btn btn-lg btn-custom ">Add Goal</a>
+      
+    </div>
+    
+  </div>
+  
+  
+  {% for category, goals in goals_by_category.items %}
+    <div class="row">
+      <h1 class="category-header mx-3"><span class="icon-span"><i class="fa-solid fa-{{ category }}"></i></span></h1>
+    </div>
+    
+      
+    
+
+    <div class="row">
+      {% for goal in goals %}
+      {% for key, value in categories_colors.items %}
+        {% if key == category %}
+        <div class="col-md-4 my-2">
+          <div class="card" data-bs-theme="dark">
+            <h5 style="background-color: var({{value }})"class="card-header d-flex justify-content-between align-items-center">
+              {{ goal.title }} 
+              <span class="icon-span"><i class="fa-solid fa-{{ goal.categories }}"></i></span>
+            </h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ goal.title }}  
+                {% if goal.completed == True %}
+                <span class="icon-span"><i class="fa-solid fa-trophy"></i></span> 
+                {% endif %}</h5>
+              <p class="card-text">{{ goal.description }}</p>
+              <a href="{% url 'details' goal.id  %}" style="background-color: var({{value }})" class="btn btn-custom ">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        {% endif %}
+      {% endfor %}
+        
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+  
+{% endblock content %}

@@ -1,0 +1,82 @@
+:root {
+    --charcoal-gray: #b6b6b6;
+    --charcoal-gray-hover: #959595;
+    --charcoal-gray-active: #737373;
+  
+    --midnight-blue: #0553a2;
+    --midnight-blue-hover: #033a6f;
+    --midnight-blue-active: #02264b;
+  
+    --burgundy: #800000;
+    --burgundy-hover: #660000;
+    --burgundy-active: #4c0000;
+  
+    --forest-green: #228B22;
+    --forest-green-hover: #1a6f17;
+    --forest-green-active: #144c11;
+  
+    --plum: #8E4585;
+    --plum-hover: #6f3568;
+    --plum-active: #582b54;
+  
+    --owl-pink: #FF0266;
+    --owl-pink-hover: #e50059;
+    --owl-pink-active: #cc004c;
+  
+    --aubergine: #481D24;
+    --aubergine-hover: #3c1720;
+    --aubergine-active: #31141c;
+  
+    --slate-blue: #6A5ACD;
+    --slate-blue-hover: #554692;
+    --slate-blue-active: #443a73;
+  
+    --olive-green: #556B2F;
+    --olive-green-hover: #445823;
+    --olive-green-active: #36471c;
+
+    --deep-indigo: #3F3D4B;
+    --deep-indigo-hover: #302F3A;
+    --deep-indigo-active: #24232C;
+  
+    --steel-gray: #666666;
+    --steel-gray-hover: #555555;
+    --steel-gray-active: #444444;
+  }
+  
+
+body{
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: #191919;
+    padding-top: 75px;
+    color: aliceblue;
+    
+}
+
+
+.timer{
+    color: aliceblue;
+    font-size: 5rem;
+}
+@media only screen and (max-width: 600px) {
+   .timer{
+    font-size: 2rem;
+   }
+  }
+
+
+.custom-header{
+    background-color: var(--owl-pink);
+}
+
+.btn-custom{
+    background-color: var(--owl-pink);
+    color: white;
+}
+
+.btn-custom:hover{
+    background-color: var(--owl-pink-hover);
+}
+.btn-custom:active{
+    background-color: var(--owl-pink-active);
+}

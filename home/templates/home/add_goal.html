@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <h1 class='text-center timer' id="countdown">??? days remaining </h1> 
+  </div>
+  <h1>Add New Goal</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" name="add_objective" class="btn btn-custom">Add Goal</button>
+  </form>
+
+
+
+</div>
+  
+{% endblock content %}
