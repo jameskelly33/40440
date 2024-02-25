@@ -16,9 +16,21 @@
     </div>
     
   </div>
-  
+  <div class="container-fluid">
+     {% for category in category_list %}
+     {% for key, value in categories_colors.items %}
+     {% if key == category %}
+  <a href = "{% url 'home_category' category=category %}"style="background-color: var({{value }})" class="category-btn btn btn-custom my-3 mx-2" id="{{ category }}"><span class="icon-span"><i class="fa-solid fa-{{ category }}"></i></span></a>
+  {% endif %}
+{% endfor %}
+{% endfor %}
+<button class="category-btn btn btn-custom my-3 mx-2" id="all">All</button>
+
+  </div>
+ 
   
   {% for category, goals in goals_by_category.items %}
+  
     <div class="row">
       <h1 class="category-header mx-3"><span class="icon-span"><i class="fa-solid fa-{{ category }}"></i></span></h1>
     </div>
@@ -34,7 +46,11 @@
           <div class="card" data-bs-theme="dark">
             <h5 style="background-color: var({{value }})"class="card-header d-flex justify-content-between align-items-center">
               {{ goal.title }} 
+              {% if goal.completed == True %}
+                <span class="icon-span"><i class="fa-solid fa-trophy"></i></span> 
+                {% else %}
               <span class="icon-span"><i class="fa-solid fa-{{ goal.categories }}"></i></span>
+              {% endif %}
             </h5>
             <div class="card-body">
               <h5 class="card-title">{{ goal.title }}  

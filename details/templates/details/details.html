@@ -34,13 +34,21 @@
     {% csrf_token %}
     <ol>
       {% for objective in objectives %}
-        <li>
+      <div class="row">
+        <div class="col">
+          <li class="m-2">
           <label>
             <input type="checkbox" name="completed" value="{{ objective.id }}" {% if objective.completed %}checked{% endif %} class="form-check-input">
             {{ objective.description }}
           </label>
-          <button type="submit" name="delete_objective" value="{{ objective.id }}" class="btn btn-danger ms-2 btn-sm">Delete</button>
+        </div>
+        <div class="col">
+          <button type="submit" name="delete_objective" value="{{ objective.id }}" class="btn btn-danger ms-5 btn-sm">Delete</button>
+
+        </div>
         </li>
+      </div>
+        
       {% endfor %}
     </ol>
     <input type="hidden" name="completed_status" value="on">

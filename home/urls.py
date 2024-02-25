@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     path('',views.home, name='home'),
     path('add_goal', views.add_goal, name='add_goal'),
+    path('<str:category>/', views.home, name='home_category'),
    
 ]
 

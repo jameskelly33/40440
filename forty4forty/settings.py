@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-4&-%vg6j29j_g)bcct-u&4w9o)-y=h=&((*up2el=z=&)r#&6c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['four0440.onrender.com']
+ALLOWED_HOSTS = ['four0440.onrender.com', '127.0.0.1']
 
 
 
