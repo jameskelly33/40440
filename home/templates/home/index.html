@@ -16,7 +16,7 @@
     </div>
     
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid d-lg-none"">
      {% for category in category_list %}
      {% for key, value in categories_colors.items %}
      {% if key == category %}
@@ -24,7 +24,7 @@
   {% endif %}
 {% endfor %}
 {% endfor %}
-<button class="category-btn btn btn-custom my-3 mx-2" id="all">All</button>
+<a href= {% url 'home' %} class="category-btn btn btn-custom my-3 mx-2" id="all">All</a>
 
   </div>
  
